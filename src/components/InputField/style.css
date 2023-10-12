@@ -1,0 +1,46 @@
+.input-field {
+  display: flex;
+  min-width: 16rem;
+  min-height: 2rem;
+  border: none;
+  font: 600 1.2rem "Roboto Mono", monospace;
+  background: transparent;
+  padding: 0;
+  color: white;
+  
+}
+
+.input-field:focus {
+  outline: none;
+}
+
+.input-field__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.3rem 1rem 0.3rem 0.1rem;
+  border-radius: 1rem;
+  border: 0.2rem solid #343841;
+  background-color: #434A57;
+  transition: 0.2s;
+  color: white;
+}
+
+.input-field__wrapper:focus-within {
+  border: 0.2rem solid #696D74;
+  box-shadow: 0px 0px 16px 9px rgba(237, 240, 243, 0.2);
+}
+
+.input-field__btn {
+  background: none;
+  color: #696D74;
+  border: none;
+  width: auto;
+  height: auto;
+  cursor: pointer;  
+}
+
+.input-field__btn_hidden {
+  visibility: hidden;
+}
+
