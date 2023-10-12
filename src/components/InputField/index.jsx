@@ -21,13 +21,11 @@ class InputField extends React.Component {
   }
 
   handleClear = (e) => {
-    e.preventDefault();
     this.input.current.focus();
     this.setState({ ...this.state, value: '' });        
   }
 
   handleSearch = (e) => {
-    e.preventDefault();
     this.input.current.focus();
     console.log(`Searching for ${ this.state.value }`);
   }
