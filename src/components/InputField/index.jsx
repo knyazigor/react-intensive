@@ -36,10 +36,15 @@ class InputField extends React.Component {
     this.setState({ ...this.state, value: e.target.value });
   }
 
-  handleKeyDown = (e) => {
-    switch(e.key) {
-      case 'Escape': this.handleClear();
-      case 'Enter': this.handleSearch();
+  handleKeyDown = ({ key }) => {
+    switch(key) {
+      case 'Escape': 
+        this.handleClear();
+        break;
+      case 'Enter': 
+        this.handleSearch();
+        break;
+      // no default 
     }
   }
 
