@@ -1,6 +1,6 @@
 import React from 'react';
-import './style.css';
-import InputFieldBtn from '../InputFieldBtn';
+import './InputField.css';
+import InputFieldBtn from './InputFieldBtn';
 
 class InputField extends React.Component {
   constructor() {
