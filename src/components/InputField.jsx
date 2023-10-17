@@ -8,8 +8,8 @@ class InputField extends React.Component {
     this.state = {
       focused: false,
       value: '',
+      submitDisabled: false,
     };
-    this.input = React.createRef();
     console.log('constructor hook');
   }
 
@@ -22,17 +22,20 @@ class InputField extends React.Component {
   }
 
   handleClear = (e) => {
-    this.input.current.focus();
+    this.props.inputRef.current.focus();
     this.setState({ value: '' });        
   }
 
   handleSearch = (e) => {
-    this.input.current.focus();
-    console.log(`Searching for ${ this.state.value }`);
+    const {props: { inputRef, handleAddToList }, state: { value }} = this;
+    inputRef.current.focus();
+    handleAddToList(this.state.value);
+    console.log(`Searching for ${ value }`);
   }
 
   handleChange = (e) => {
     this.setState({ value: e.target.value });
+
   }
 
   handleKeyDown = ({ key }) => {
@@ -49,33 +52,37 @@ class InputField extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('componentDidUpdate hook')
+    console.log('componentDidUpdate hook');
   }
 
   componentWillUnmount() {
-    console.log('componentWillUnmount hook')
+    console.log('componentWillUnmount hook');
   }
 
   render() {
+    const { 
+      state: { value }, 
+      props: { inputRef }, 
+      handleBlur, handleChange, handleClear, handleFocus, handleKeyDown, handleSearch 
+    } = this;
+
     return (
-      <>
         <div className='input-field__wrapper'>
-          <InputFieldBtn name='cancel' hidden={!this.state.value} handleClick={this.handleClear} />
+          <InputFieldBtn name='cancel' hidden={!value} handleClick={handleClear} />
           <input 
             type='text' 
             className='input-field' 
-            value={this.state.value}
-            ref={this.input} 
-            onFocus={this.handleFocus} 
-            onBlur={this.handleBlur} 
-            onChange={this.handleChange}
-            onKeyDown={this.handleKeyDown}
+            value={value}
+            ref={inputRef} 
+            onFocus={handleFocus} 
+            onBlur={handleBlur} 
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
           />
-          <InputFieldBtn name='double_arrow' handleClick={this.handleSearch} />
+          <InputFieldBtn name='double_arrow' handleClick={handleSearch} disabled={value === 'реакт'} />
         </div>
-      </>
     )
   } 
 }
 
-export default InputField;
+export default React.forwardRef((props, ref) => <InputField inputRef={ref} {...props} />);

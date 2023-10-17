@@ -30,16 +30,3 @@
   border: 0.2rem solid #696D74;
   box-shadow: 0px 0px 16px 9px rgba(237, 240, 243, 0.2);
 }
-
-.input-field__btn {
-  background: none;
-  color: #696D74;
-  border: none;
-  width: auto;
-  height: auto;
-  cursor: pointer;  
-}
-
-.input-field__btn_hidden {
-  visibility: hidden;
-}

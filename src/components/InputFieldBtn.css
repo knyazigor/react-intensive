@@ -1,0 +1,17 @@
+.input-field__btn {
+  background: none;
+  color: #696d74;
+  border: none;
+  width: auto;
+  height: auto;
+  cursor: pointer;  
+}
+
+.input-field__btn_hidden {
+  visibility: hidden;
+}
+
+.input-field__btn:disabled {
+  color: #282a2d;
+  cursor: not-allowed;
+}

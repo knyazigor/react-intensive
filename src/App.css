@@ -15,6 +15,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  gap: 1rem;
   
 }
 
@@ -30,4 +31,24 @@
   'wght' 400,
   'GRAD' 0,
   'opsz' 24
+}
+
+.btn {
+  border: 0.2rem solid #696D74;
+  background: transparent;
+  color: white;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background-color: #434A57;
+}
+
+.btn:active {
+  background-color: #5d6679;
+  transform: scale(0.97);
 }
